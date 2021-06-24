@@ -15,6 +15,9 @@ async def root():
     return {"message": "Hello World"}
 
 
+@app.get("/new")
+async def new():
+    return {"message":"new change"}
 # @app.post("/predict")
 # async def predict(d:ModelData):
 #     nlp_updated = spacy.load('tmp_model')
