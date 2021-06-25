@@ -28,6 +28,9 @@ async def new():
 #             ent.label_: ent.text
 #         })
 #     return data
+@app.get("/new1")
+async def new():
+    return {"message":"new change 1"}
 
 @app.post("/test")
 def test(data:TestData):
