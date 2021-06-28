@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from . import azuredb
 app = FastAPI()
 
 
@@ -46,6 +47,14 @@ async def read_item(service_id: str):
     if service_id not in obj.keys():
         return {'Id':service_id,'Name':'-','Type':'-','Usage':'-'}
     return obj[service_id]
+
+@app.get("/testconnection")
+async def testconn():
+    return azuredb.testconnection()
+
+@app.get("/getservicesfromdb")
+async def getservices():
+    return azuredb.getrecords()
 
 @app.get("/new1")
 async def new():
